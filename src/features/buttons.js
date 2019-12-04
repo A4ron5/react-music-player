@@ -3,20 +3,15 @@ import { Buttons  } from '../ui/molecules';
 import useAudioPlayer from '../useAudioPlayer';
 
 
-export const ButtonsBar = () => {
+export const ButtonsBar = (props) => {
 
   const [volume, setVolume] = useState(5);
-  const { playing, setPlaying } = useAudioPlayer();
 
-  const start = () => {
-    setPlaying(false)
-  }
-
-  const stop = () => {
-    setPlaying(true)
+  const play = () => {
+    props.setPlaying(prev => !prev)
   }
 
   return (
-    <Buttons start={start} stop={stop} playing={playing} volume={volume}/>
+    <Buttons play={play}  playing={props.playing} volume={volume}/>
   )
 }

@@ -15,7 +15,9 @@ function useAudioPlayer() {
       setCurTime(audio.currentTime);
     }
 
-    const setAudioTime = () => setCurTime(audio.currentTime);
+    const setAudioTime = () => {
+      setCurTime(audio.currentTime);
+    }
 
     // DOM listeners: update React state on DOM events
     audio.addEventListener("loadeddata", setAudioData);

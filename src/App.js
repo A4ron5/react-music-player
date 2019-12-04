@@ -1,7 +1,5 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import song from './song1.mp3';
-
 
 import { AlbumCover } from './ui/molecules';
 import { Audio } from './ui/molecules';
@@ -10,7 +8,7 @@ import { Description } from './ui/molecules';
 import { ButtonsBar } from './features/';
 import { ProgressBar } from './features/';
 
-
+import useAudioPlayer from './useAudioPlayer';
 
 const GlobalStyle = createGlobalStyle`
 	* {
@@ -44,15 +42,17 @@ const Player = styled.div`
 
 function App() {
   
+  const {curTime, duration, playing, setPlaying, setClickedTime} = useAudioPlayer();
+
   return (
     <React.Fragment>
       <GlobalStyle/>
       <Player>
-        <Audio src={song} />
+        <Audio/>
         <AlbumCover path='https://avatars.yandex.net/get-music-content/95061/14614cc4.a.7373129-1/m1000x1000' />
-        {/* <ProgressBar /> */}
+        <ProgressBar curTime={curTime} duration={duration} setClickedTime={setClickedTime}/>
         <Description />
-        <ButtonsBar />
+        <ButtonsBar playing={playing} setPlaying={setPlaying}/>
       </Player>
     </React.Fragment>
   );

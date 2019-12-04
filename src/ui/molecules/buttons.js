@@ -33,13 +33,13 @@ const VolumeButton = ({ volume }) => {
   }
 }
 
-export const Buttons = ({ start, stop, volume, playing }) => (
+export const Buttons = ({ play, volume, playing }) => (
   <ButtonskWrapper>
     <FontAwesomeIcon icon={faBackward} size='2x' className='button'/>
     {playing ? ( 
-      <FontAwesomeIcon onClick={start} icon={faPause} size='2x' className='button'/> 
+      <FontAwesomeIcon onClick={play} icon={faPause} size='2x' className='button'/> 
     )  : ( 
-      <FontAwesomeIcon onClick={stop} icon={faPlay} size='2x' className='button'/> 
+      <FontAwesomeIcon onClick={play} icon={faPlay} size='2x' className='button'/> 
     )}     
     <FontAwesomeIcon  icon={faForward} size='2x' className='button'/>
     <ButtonkWrapper>

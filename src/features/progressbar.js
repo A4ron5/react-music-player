@@ -2,10 +2,9 @@ import React, { useRef } from 'react';
 import useAudioPlayer from '../useAudioPlayer';
 import { ProgressBarUI } from '../ui/molecules';
 
-export const ProgressBar = () => {
+export const ProgressBar = ({curTime, duration, setClickedTime}) => {
 
   const bar = useRef();
-  const { curTime, duration, setClickedTime } = useAudioPlayer();
 
   const calcClickedTime = (e) => {
     const clickPositionInPage = e.pageX;
