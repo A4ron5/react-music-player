@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import { Buttons  } from '../ui/molecules';
-import useAudioPlayer from '../useAudioPlayer';
 
-
-export const ButtonsBar = (props) => {
-
-  const [volume, setVolume] = useState(5);
+export const ButtonsBar = ({ setPlaying, playing }) => {
 
   const play = () => {
-    props.setPlaying(prev => !prev)
+    setPlaying(prev => !prev)
   }
 
   return (
-    <Buttons play={play}  playing={props.playing} volume={volume}/>
+    <Buttons play={play}  playing={playing} volume={volume}/>
   )
 }
