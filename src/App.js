@@ -1,14 +1,17 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import styled, { createGlobalStyle } from 'styled-components';
 
 import { AlbumCover } from './ui/molecules';
 import { Audio } from './ui/molecules';
 import { Description } from './ui/molecules';
 
-import { ButtonsBar } from './features/';
-import { ProgressBar } from './features/';
+import { Buttons } from './features/buttons';
+import { ProgressBar } from './features/progressbar';
 
-import useAudioPlayer from './useAudioPlayer';
+import configureStore from './store';
+
+const store = configureStore();
 
 const GlobalStyle = createGlobalStyle`
 	* {
@@ -42,19 +45,19 @@ const Player = styled.div`
 
 function App() {
   
-  const {curTime, duration, playing, setPlaying, setClickedTime} = useAudioPlayer();
+  
 
   return (
-    <React.Fragment>
+    <Provider store={store} >
       <GlobalStyle/>
       <Player>
         <Audio/>
         <AlbumCover path='https://avatars.yandex.net/get-music-content/95061/14614cc4.a.7373129-1/m1000x1000' />
-        <ProgressBar curTime={curTime} duration={duration} setClickedTime={setClickedTime}/>
+        <ProgressBar />
         <Description />
-        <ButtonsBar playing={playing} setPlaying={setPlaying}/>
+        <Buttons />
       </Player>
-    </React.Fragment>
+    </Provider>
   );
 }
 

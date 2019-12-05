@@ -4,7 +4,7 @@ import { faVolumeUp} from '@fortawesome/free-solid-svg-icons'
 import { faVolumeMute} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const VolumeButton = ({ volume }) => {
+const VolumeButton = ({ volume }) => {
   if(volume === 0) { 
     return <FontAwesomeIcon  icon={faVolumeMute} size='2x' className='button'/>;
   }

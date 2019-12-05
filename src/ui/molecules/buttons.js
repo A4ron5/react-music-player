@@ -33,7 +33,7 @@ const VolumeButton = ({ volume }) => {
   }
 }
 
-export const Buttons = ({ play, volume, playing }) => (
+export const ButtonsUI = ({ play, volume, playing }) => (
   <ButtonskWrapper>
     <FontAwesomeIcon icon={faBackward} size='2x' className='button'/>
     {playing ? ( 
