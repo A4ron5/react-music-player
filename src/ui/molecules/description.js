@@ -11,9 +11,9 @@ const Text = styled.p``;
 
 export const Description = () => (
   <Info>
-    <Title>NILETTO</Title>
+    <Title>The Limba</Title>
     <Descr>
-      <Text>Любимка</Text>
+      <Text>СИНИЕ ФИАЛКИ</Text>
     </Descr>
   </Info>
 );

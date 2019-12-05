@@ -5,4 +5,4 @@
 
 2.`npm start`
 
-![](https://snipboard.io/W0CYMJ.jpg)
+![](https://snipboard.io/FyPUs9.jpg)

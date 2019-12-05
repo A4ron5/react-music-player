@@ -52,7 +52,7 @@ function App() {
       <GlobalStyle/>
       <Player>
         <Audio/>
-        <AlbumCover path='https://avatars.yandex.net/get-music-content/95061/14614cc4.a.7373129-1/m1000x1000' />
+        <AlbumCover path='https://mp3hubs.ru/images/sounds/1567197853mp3superman.jpg' />
         <ProgressBar />
         <Description />
         <Buttons />
