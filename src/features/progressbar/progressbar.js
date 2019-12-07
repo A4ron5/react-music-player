@@ -10,19 +10,21 @@ export const ProgressBar = () => {
   
   const bar = useRef();
 
-  const duration = useSelector(state => state.progressbar.duration);
-  const curTime = useSelector(state => state.progressbar.curTime);
-  const clickedTime = useSelector(state => state.progressbar.clickedTime);
-  const playing = useSelector(state => state.buttons.playing);
+  const audio = useSelector(state => ({
+    duration: state.progressbar.duration,
+    curTime: state.progressbar.curTime,
+    clickedTime: state.progressbar.clickedTime,
+    playing: state.buttons.playing
+  }))
 
-  useAudioPlayer(dispatch, curTime, clickedTime, playing);
+  useAudioPlayer(dispatch, audio.curTime, audio.clickedTime, audio.playing);
 
   const calcClickedTime = (e) => {
     const clickPositionInPage = e.pageX;
     const barStart = bar.current.getBoundingClientRect().left + window.scrollX;
     const barWidth = bar.current.offsetWidth;
     const clickPositionInBar = clickPositionInPage - barStart;
-    const timePerPixel = duration / barWidth;
+    const timePerPixel = audio.duration / barWidth;
     return timePerPixel * clickPositionInBar;
   }
 
@@ -41,7 +43,7 @@ export const ProgressBar = () => {
   }
   return (
     <ProgressBarUI 
-      curPercentage={(curTime / duration) * 100} 
+      curPercentage={(audio.curTime / audio.duration) * 100} 
       ref={bar} 
       handleMouseDown={e => handleTimeDrag(e)}
     />
