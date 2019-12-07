@@ -11,7 +11,7 @@ export const GlobalStyles = createGlobalStyle`
   .button {
     cursor: pointer;
     &:hover {
-      color: #a20555bd;
+      color: #df405a;
     }
   }
 `;
