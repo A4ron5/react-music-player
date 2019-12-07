@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { ProgressBarUI } from '../../ui/molecules';
+import { ProgressBar as ProgressBarView } from '../../ui/molecules';
 import { useAudioPlayer } from './hooks/useAudioPlayer';
 import { handleTimeDrag } from './utils';
 
@@ -21,7 +21,7 @@ export const ProgressBar = () => {
   useAudioPlayer(dispatch, audio.curTime, audio.clickedTime, audio.playing);
 
   return (
-    <ProgressBarUI 
+    <ProgressBarView 
       curPercentage={(audio.curTime / audio.duration) * 100} 
       ref={bar} 
       handleMouseDown={e => handleTimeDrag(e, audio.duration, bar, dispatch)}

@@ -8,7 +8,6 @@ const rootReducer = combineReducers({ buttons, progressbar })
 
 export default function configureStore() {
  
-
   const store = createStore(rootReducer, applyMiddleware(logger))
 
   return store

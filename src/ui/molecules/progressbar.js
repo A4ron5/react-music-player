@@ -19,7 +19,7 @@ const BarKnob = styled.span`
   background-color: #df405a;
 `;
 
-export const ProgressBarUI = React.forwardRef(({ curPercentage, handleMouseDown }, ref) => (
+export const ProgressBar = React.forwardRef(({ curPercentage, handleMouseDown }, ref) => (
   <SongProgressBar curPercentage={curPercentage} onMouseDown={handleMouseDown} ref={ref}>
     <BarKnob curPercentage={curPercentage}/>
   </SongProgressBar>
