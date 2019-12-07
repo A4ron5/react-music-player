@@ -1,9 +1,8 @@
 import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { actions } from './action';
 import { ProgressBarUI } from '../../ui/molecules';
 import { useAudioPlayer } from './hooks/useAudioPlayer';
-import { calcClickedTime } from './utils';
+import { handleTimeDrag } from './utils';
 
 
 export const ProgressBar = () => {
@@ -21,24 +20,11 @@ export const ProgressBar = () => {
 
   useAudioPlayer(dispatch, audio.curTime, audio.clickedTime, audio.playing);
 
-  const handleTimeDrag = (e) => {
-    dispatch(actions.setClickedTime(calcClickedTime(e, audio.duration, bar)));
-
-    const updateTimeOnMove = eMove => {
-      dispatch(actions.setClickedTime(calcClickedTime(eMove, audio.duration, bar)));
-    };
-
-    document.addEventListener("mousemove", updateTimeOnMove);
-
-    document.addEventListener("mouseup", () => {
-      document.removeEventListener("mousemove", updateTimeOnMove);
-    });
-  }
   return (
     <ProgressBarUI 
       curPercentage={(audio.curTime / audio.duration) * 100} 
       ref={bar} 
-      handleMouseDown={e => handleTimeDrag(e)}
+      handleMouseDown={e => handleTimeDrag(e, audio.duration, bar, dispatch)}
     />
   )
 };
