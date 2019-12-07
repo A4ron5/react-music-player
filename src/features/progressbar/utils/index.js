@@ -1,0 +1,1 @@
+export { calcClickedTime } from './calculate';

@@ -1,8 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions } from './action';
 import { ProgressBarUI } from '../../ui/molecules';
 import { useAudioPlayer } from './hooks/useAudioPlayer';
+import { calcClickedTime } from './utils';
+
 
 export const ProgressBar = () => {
 
@@ -19,20 +21,11 @@ export const ProgressBar = () => {
 
   useAudioPlayer(dispatch, audio.curTime, audio.clickedTime, audio.playing);
 
-  const calcClickedTime = (e) => {
-    const clickPositionInPage = e.pageX;
-    const barStart = bar.current.getBoundingClientRect().left + window.scrollX;
-    const barWidth = bar.current.offsetWidth;
-    const clickPositionInBar = clickPositionInPage - barStart;
-    const timePerPixel = audio.duration / barWidth;
-    return timePerPixel * clickPositionInBar;
-  }
-
   const handleTimeDrag = (e) => {
-    dispatch(actions.setClickedTime(calcClickedTime(e)));
+    dispatch(actions.setClickedTime(calcClickedTime(e, audio.duration, bar)));
 
     const updateTimeOnMove = eMove => {
-      dispatch(actions.setClickedTime(calcClickedTime(eMove)));
+      dispatch(actions.setClickedTime(calcClickedTime(eMove, audio.duration, bar)));
     };
 
     document.addEventListener("mousemove", updateTimeOnMove);
