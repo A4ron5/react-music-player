@@ -1,5 +1,5 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux'
-import logger from 'redux-logger'
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import logger from 'redux-logger';
 
 import { buttons } from '../features/buttons'
 import { progressbar } from '../features/progressbar';

@@ -1,6 +1,6 @@
 import { actions } from '../action';
-
-export const calcClickedTime = (e, duration, bar) => {
+//TODO: fix type any
+export const calcClickedTime = (e: any, duration: number, bar: any) => {
   const clickPositionInPage = e.pageX;
   const barStart = bar.current.getBoundingClientRect().left + window.scrollX;
   const barWidth = bar.current.offsetWidth;
@@ -9,10 +9,10 @@ export const calcClickedTime = (e, duration, bar) => {
   return timePerPixel * clickPositionInBar;
 }
 
-export const handleTimeDrag = (e, duration, bar, dispatch) => {
+export const handleTimeDrag = (e: any, duration: number, bar: any, dispatch: any) => {
   dispatch(actions.setClickedTime(calcClickedTime(e, duration, bar)));
 
-  const updateTimeOnMove = eMove => {
+  const updateTimeOnMove = (eMove: any) => {
     dispatch(actions.setClickedTime(calcClickedTime(eMove, duration, bar)));
   };
 

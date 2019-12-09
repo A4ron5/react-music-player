@@ -4,27 +4,26 @@ import { ProgressBar as ProgressBarView } from '../../ui/molecules';
 import { useAudioPlayer } from './hooks/useAudioPlayer';
 import { handleTimeDrag } from './utils';
 
-
 export const ProgressBar = () => {
 
   const dispatch = useDispatch();
   
-  const bar = useRef();
-
-  const audio = useSelector(state => ({
+  const bar = useRef<HTMLDivElement>(null);
+//TODO: fix type any
+  const audio = useSelector((state: any) => ({
     duration: state.progressbar.duration,
-    curTime: state.progressbar.curTime,
+    currentTime: state.progressbar.currentTime,
     clickedTime: state.progressbar.clickedTime,
     playing: state.buttons.playing
   }))
 
-  useAudioPlayer(dispatch, audio.curTime, audio.clickedTime, audio.playing);
-
+  useAudioPlayer(dispatch, audio.currentTime, audio.clickedTime, audio.playing);
+  console.log(audio.currentTime, audio.duration)
   return (
     <ProgressBarView 
-      curPercentage={(audio.curTime / audio.duration) * 100} 
+      curPercentage={(audio.currentTime / audio.duration) * 100} 
       ref={bar} 
-      handleMouseDown={e => handleTimeDrag(e, audio.duration, bar, dispatch)}
+      handleMouseDown={(e: any) => handleTimeDrag(e, audio.duration, bar, dispatch)}
     />
   )
 };

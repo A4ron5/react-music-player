@@ -11,7 +11,7 @@ const Image = styled.img`
 	max-width: 100%;
 `;
 
-export const AlbumCover = ({ path }) => (
+export const AlbumCover = () => (
   <Cover>
     <Image src='https://mp3hubs.ru/images/sounds/1567197853mp3superman.jpg'/>
   </Cover>

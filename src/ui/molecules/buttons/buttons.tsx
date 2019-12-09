@@ -8,6 +8,16 @@ import { faBackward } from '@fortawesome/free-solid-svg-icons';
 import { faVolumeDown} from '@fortawesome/free-solid-svg-icons'
 import { faVolumeUp} from '@fortawesome/free-solid-svg-icons'
 import { faVolumeMute} from '@fortawesome/free-solid-svg-icons'
+//TODO: types should be in other dir
+type VolumeButton = {
+  volume: number
+}
+
+type Buttons = {
+  play: any,
+  volume: number,
+  playing: boolean,
+}
 
 const ButtonkWrapper = styled.div`
   width: 36px;
@@ -21,19 +31,23 @@ const ButtonskWrapper = styled.div`
   margin: 20px 0;
 `
 
-const VolumeButton = ({ volume }) => {
+const VolumeButton = ({ volume }: VolumeButton) => {
+  let icon: any;
+
   if(volume === 0) { 
-    return <FontAwesomeIcon  icon={faVolumeMute} size='2x' className='button'/>;
+    icon = faVolumeMute;
   }
   if(volume > 0.5) {
-    return <FontAwesomeIcon  icon={faVolumeUp} size='2x' className='button'/>;
+    icon = faVolumeUp;
   }
   if(volume < 0.5) { 
-    return <FontAwesomeIcon  icon={faVolumeDown} size='2x' className='button'/>;
+    icon = faVolumeDown;
   }
+  
+  return <FontAwesomeIcon  icon={icon} size='2x' className='button'/>;
 }
 
-export const Buttons = ({ play, volume, playing }) => (
+export const Buttons = ({ play, volume, playing }: Buttons) => (
   <ButtonskWrapper>
     <FontAwesomeIcon icon={faBackward} size='2x' className='button'/>
     {playing ? ( 

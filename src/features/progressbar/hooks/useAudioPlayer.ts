@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { actions } from '../action';
-
-export const useAudioPlayer = (dispatch, curTime, clickedTime, playing) => {
+//TODO: fix type any
+export const useAudioPlayer = (dispatch: any, curTime: number, clickedTime: number, playing: boolean) => {
 
   useEffect(() => {
-    const audio = document.getElementById("audio");
+    const audio = <HTMLAudioElement>document.getElementById("audio");
     audio.volume = 0.2;
     
     const setAudioData = () => {
