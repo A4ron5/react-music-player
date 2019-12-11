@@ -9,11 +9,11 @@ const Title = styled.h1`
 const Descr = styled.div``;
 const Text = styled.p``;
 
-export const Description = () => (
+export const Description = ({ title, descr }: { title: string, descr: string }) => (
   <Info>
-    <Title>The Limba</Title>
+    <Title>{title}</Title>
     <Descr>
-      <Text>СИНИЕ ФИАЛКИ</Text>
+      <Text>{descr}</Text>
     </Descr>
   </Info>
 );

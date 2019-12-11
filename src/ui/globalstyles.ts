@@ -6,7 +6,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family:   'Varela Round', sans-serif;
   }
   body {
-    background: #dfe6ff6b;
+    background: #fcdcd9;
   }
   .button {
     cursor: pointer;

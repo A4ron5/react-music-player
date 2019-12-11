@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const PlayerView = styled.div`
+	position: relative;
   width: 100%;
 	max-width: 340px;
 	padding: 20px;

@@ -1,8 +1,8 @@
 import React from 'react';
 
-export const Audio = () => (
+export const Audio = ({ src }: { src: string }) => (
   <audio id='audio'>
-    <source src='http://d.zaix.ru/g72i.mp3'/>
+    <source src={src}/>
     Your browser does not support the <code>audio</code> element.
   </audio>
 )

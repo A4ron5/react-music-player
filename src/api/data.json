@@ -1,0 +1,28 @@
+{
+  "tracks": [
+    {
+      "artist": "Jubilee",
+      "track": "Розовый Блант",
+      "url": "http://d.zaix.ru/gcnL.mp3",
+      "cover": "http://d.zaix.ru/gcnY.jpg"
+    },
+    {
+      "artist": "The Limba",
+      "track": "Синие фиалки",
+      "url": "http://d.zaix.ru/g72i.mp3",
+      "cover": "http://d.zaix.ru/gco6.jpg"
+    },
+    {
+      "artist": "Мария Чайковская",
+      "track": "Целуй меня",
+      "url": "http://d.zaix.ru/gcob.mp3",
+      "cover": "http://d.zaix.ru/gcpQ.jpg"
+    },
+    {
+      "artist": "Эрика Лундмоен",
+      "track": "Кратко",
+      "url": "http://d.zaix.ru/gcoe.mp3",
+      "cover": "http://d.zaix.ru/gcog.jpg"
+    }
+  ]
+}

@@ -6,8 +6,10 @@ import { handleTimeDrag } from './utils';
 
 export const ProgressBar = () => {
 
+
   const dispatch = useDispatch();
   
+
   const bar = useRef<HTMLDivElement>(null);
 //TODO: fix type any
   const audio = useSelector((state: any) => ({
@@ -17,8 +19,12 @@ export const ProgressBar = () => {
     playing: state.buttons.playing
   }))
 
+  
+
+
+
   useAudioPlayer(dispatch, audio.currentTime, audio.clickedTime, audio.playing);
-  console.log(audio.currentTime, audio.duration)
+  
   return (
     <ProgressBarView 
       curPercentage={(audio.currentTime / audio.duration) * 100} 
